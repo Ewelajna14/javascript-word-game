@@ -3,27 +3,27 @@ const questionDisplay = document.getElementById("question-display")
 
 const questions = [
     {
-       quis: ["value", "estimate", "evaluate"],
+       quiz: ["value", "estimate", "evaluate"],
        options: ["jury", "assess"],
        correct: 2
     },
     {
-        quis: ["close", "near", "next"],
+        quiz: ["close", "near", "next"],
         options: ["trace", "adjacent"],
         correct: 2
      },
      {
-        quis: ["foreign", "national", "ethnic"],
+        quiz: ["foreign", "national", "ethnic"],
         options: ["mad", "exotic"],
         correct: 2
      },
      {
-        quis: ["assume", "insight", "weather"],
+        quiz: ["assume", "insight", "weather"],
         options: ["forecast", "sustainable"],
         correct: 1
      },
      {
-        quis: ["fast", "quick", "prompt"],
+        quiz: ["fast", "quick", "prompt"],
         options: ["charity", "rapid"],
         correct: 2
      }
@@ -33,3 +33,24 @@ const questions = [
 
 let score = 0
 scoreDisplay.textContent = score
+
+function populateQuestions(){
+    questions.forEach( question => {
+        const questionBox = document.createElement('div')
+        questionBox.classList.add('question-box')
+        //add logo
+        const logoDisplay = document.createElement("h1")
+        logoDisplay.textContent = "❔"
+        questionBox.append(logoDisplay)
+        //show questions for each div
+        question.quiz.forEach(tip=>{
+           const tipText = document.createElement("p")
+           tipText.textContent = tip
+           questionBox.append(tipText)
+        })
+
+        questionDisplay.append(questionBox)
+    })
+}
+
+populateQuestions()
