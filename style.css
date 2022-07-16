@@ -18,3 +18,22 @@
     border-radius: 10px;
     padding: 0 40px 10px 40px;
 }
+
+.question-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.question-button {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: aqua;
+    color: black;
+
+}
+
+.question-button:disabled {
+    background-color: grey;
+}

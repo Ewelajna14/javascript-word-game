@@ -48,9 +48,28 @@ function populateQuestions(){
            tipText.textContent = tip
            questionBox.append(tipText)
         })
+        //add buttons
+        const questionButtons = document.createElement("div")
+        questionButtons.classList.add('question-buttons')
+        questionBox.append(questionButtons)
+        
+        // add button to each question
+        question.options.forEach( (option, optionIndex)=>{
+          const questionButton = document.createElement("button")
+          questionButton.classList.add('question-button')
+          questionButton.textContent = option
+          //add eventlistener
+          questionButton.addEventListener("click", ()=> checkAnswer(option, optionIndex + 1, question.correct))
+
+          questionButtons.append(questionButton)
+        })
 
         questionDisplay.append(questionBox)
     })
 }
 
 populateQuestions()
+
+function checkAnswer(option, optionIndex, correctAnswer){
+
+}
